@@ -10,7 +10,6 @@ docker network create simple-network
 #docker run --name mail --net=simple-network -d -p 1080:80 -p 1025:25 maildev
 
 # Create and start Exposee-Container, and create link with other containers
-cd ..
 docker build -t rmsimage .
 echo -n "Building RMS"
 while true;do echo -n .;sleep 1;done &
