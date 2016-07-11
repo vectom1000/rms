@@ -1,0 +1,45 @@
+﻿
+#inhalt {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#logo{
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 1px;
+}
+body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.navbar {min-height:10px !important;}
+.navbar-fixed-bottom {
+
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    height:50px !important;
+
+}
+
+.log_test {
+    align-content: center;
+    padding-top: 200px;
+}
+
+.error_custom{
+    color: red;
+}
+
+#loginarea{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 13px;
+}
