@@ -4,4 +4,4 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-admin.site.unregister(User)
+

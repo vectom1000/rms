@@ -19,6 +19,6 @@ sleep 1 # or do something else here
 kill $!; trap 'kill $!' SIGTERM
 echo 'done'
 echo -n "init_db... "
-#docker exec -i exposeeapp python manage.py shell < init_db.py
+docker exec -i rmsapp python manage.py shell < init_db.py
 echo "RMS is now ready!"
 
