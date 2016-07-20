@@ -17,5 +17,5 @@ from rms_app.models import Gericht
 def hello(request):
     gericht = Gericht.objects.create(gericht_name="Spaghetti")
     gericht.save()
-    print gericht.gericht_name
-    return render(request, 'layout.html')
+    gerichte = Gericht.objects.get(pk=1)
+    return render(request, 'main.html', {'gericht': gerichte})

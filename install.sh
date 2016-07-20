@@ -20,5 +20,6 @@ kill $!; trap 'kill $!' SIGTERM
 echo 'done'
 echo -n "init_db... "
 docker exec -i rmsapp python manage.py shell < init_db.py
+#python manage.py migrate --run-syncdb
 echo "RMS is now ready!"
 
