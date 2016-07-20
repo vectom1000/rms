@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 
-       <a> {{ test}} </a>
-        <a> {{ gericht}} </a>
+    <a> {{ gericht}} </a>
+    <div class="row">
 
+        {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
+        <div class="col-md-4"> {{forloop.counter}}</div>
+        {% endfor %}
+
+    </div>
 {% endblock %}
