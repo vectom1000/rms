@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-
+{% load staticfiles %}
     <a> {{ gericht}} </a>
+
     <div class="row">
 
         {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
-        <div class="col-md-4 col-sm-6 col-xs-12"> {{forloop.counter}}</div>
+            <div class="col-md-4 col-sm-6 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}"> <img  class="img-responsive" src="{% static 'rms_app/photos/1.jpg' %}">  </div>
         {% endfor %}
 
     </div>
