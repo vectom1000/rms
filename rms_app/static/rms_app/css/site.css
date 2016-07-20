@@ -44,21 +44,7 @@ html {
     padding: 13px;
 }
 
-.grow img {
-  height: 80% !important;
-  width: 80% !important;
 
-  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-}
-
-.grow img:hover {
-  width: 100% !important;
-  height: 100% !important;
-}
 
 
 .hovereffect {
