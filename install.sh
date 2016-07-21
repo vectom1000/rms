@@ -2,7 +2,7 @@
 docker build -t rmsimage .
 echo -n "Building RMS"
 echo 'done'
-docker run --name rmsapp -p 8000:8000 -d rmsimage
+docker run --name rmsapp -p 8001:8000 -d rmsimage
 echo -n "makemigrations... "
 docker exec -d rmsapp python manage.py makemigrations
 echo "done"

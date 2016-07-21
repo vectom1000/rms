@@ -14,8 +14,12 @@ from django.core.urlresolvers import reverse
 from rms_app.models import Gericht
 
 
-def hello(request):
+def uebersicht(request):
     gericht = Gericht.objects.create(gericht_name="Spaghetti")
     gericht.save()
     gerichte = Gericht.objects.get(pk=1)
     return render(request, 'main.html', {'gericht': gerichte})
+
+def zeige_gericht(request, gericht_id):
+    gericht = Gericht.objects.get(pk=gericht_id)
+    return HttpResponseNotFound('ok'+str(gericht.gericht_name))

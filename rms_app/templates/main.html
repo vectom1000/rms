@@ -3,21 +3,18 @@
 {% load staticfiles %}
 
     <div class="row">
-
         {% for i in "xxxxxxxxxxxxxxxxxxxx" %}
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}">
                 <div class="hovereffect">
                     <img  class="img-responsive grow " src="{% static 'rms_app/photos/1.jpg' %}">
                     <div class="overlay">
                         <h2>{{ gericht }}</h2>
-                        <a class="info" href="#">link here</a>
+                        <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">link here</a>
                         </div>
                 </div>
             </div>
         {% endfor %}
-
-   div>
     </div>
-</div>
+
 {% endblock %}
 
