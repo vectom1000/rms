@@ -13,3 +13,4 @@ echo 'done'
 #python manage.py migrate --run-syncdb
 echo "RMS is now ready!"
 
+
