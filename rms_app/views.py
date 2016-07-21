@@ -15,11 +15,23 @@ from rms_app.models import Gericht
 
 
 def uebersicht(request):
+    """
+    Zeigt eine Übersicht aller eingetragenen Rezepte/Gerichte.
+    :param request:
+    :return:
+    """
     gericht = Gericht.objects.create(gericht_name="Spaghetti")
     gericht.save()
     gerichte = Gericht.objects.get(pk=1)
-    return render(request, 'main.html', {'gericht': gerichte})
+    return render(request, 'main.html', {'gerichte': gerichte})
+
 
 def zeige_gericht(request, gericht_id):
+    """
+    Zeigt alle Informationen für ein spezielles Gericht an.
+    :param request:
+    :param gericht_id:
+    :return:
+    """
     gericht = Gericht.objects.get(pk=gericht_id)
-    return HttpResponseNotFound('ok'+str(gericht.gericht_name))
+    return render(request, 'gericht.html', {'gericht': gericht})

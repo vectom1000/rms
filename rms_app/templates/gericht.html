@@ -1,9 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 {% load staticfiles %}
+{% load rms_extras %}
 
-    <div class="row">
-
+    <div class="jumbotron">
+        <h2 class="text-center">{{ gericht }}</h2>
+        <img  class="img-responsive" src="{% static 'rms_app/photos/1.jpg' %}">
+        <h2>{{ gericht| gib_photo_string:'test' }}</h2>
     </div>
 
 {% endblock %}

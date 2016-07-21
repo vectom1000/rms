@@ -135,3 +135,15 @@ transform:translatey(0);
 transition-delay:.2s;
 }
 /* */
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
