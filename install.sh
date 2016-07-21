@@ -11,6 +11,7 @@ echo 'done'
 #echo -n "init_db... "
 #docker exec -i rmsapp python manage.py shell < init_db.py
 #python manage.py migrate --run-syncdb
+#python manage.py makemigrations rms_app
 echo "RMS is now ready!"
 
 
