@@ -154,6 +154,14 @@ transition-delay:.2s;
     margin-right: auto;
  }
 
+
+
+@media screen and (max-width: 800px) {
+    .center_div{
+    margin: 0 auto;
+    width: 80% !important; /* value of your choice which suits your alignment */
+    }
+}
 .center_div{
     margin: 0 auto;
     width:30% /* value of your choice which suits your alignment */
