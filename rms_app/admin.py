@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from rms_app.models import Gericht
 
+
 class GerichtAdmin(admin.ModelAdmin):
-    pass
+        list_display = ('gericht_name', 'beschreibung')
+
+
 admin.site.register(Gericht, GerichtAdmin)
