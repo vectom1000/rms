@@ -11,3 +11,7 @@ class Gericht(models.Model):
 
     def __str__(self):
         return self.gericht_name
+
+    class Meta:
+        verbose_name = 'Gericht'
+        verbose_name_plural = 'Gerichte'
