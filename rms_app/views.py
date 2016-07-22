@@ -93,10 +93,8 @@ def login_user(request):
                 return HttpResponseRedirect(url)
             else:
                 return render(request, 'login.html', {'error': 'Nutzer ist nicht aktiv'})
-                # Return a 'disabled account' error message
         else:
             return render(request, 'login.html', {'error': 'Die Anmeldeinformationen sind falsch'})
-            # Return an 'invalid login' error message.
     else:
         return render(request, 'login.html')
 
@@ -105,3 +103,8 @@ def login_user(request):
 def controll_center(request):
     gerichte = Gericht.objects.all()
     return render(request, 'controll_center.html', {'gerichte': gerichte})
+
+
+@login_required(login_url='/login_user/')
+def erstelle_gericht(request):
+    return HttpResponseNotFound('gefunden')

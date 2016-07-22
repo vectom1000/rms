@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^login_user/', rms_app.views.login_user, name='login'),
     url(r'^logout/', 'django.contrib.auth.views.logout'),
     url(r'^controll_center/', 'rms_app.views.controll_center', name='controll_center'),
+    url(r'^erstelle_gericht/', 'rms_app.views.erstelle_gericht', name='erstelle_gerichter'),
 
 ]
