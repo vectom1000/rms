@@ -107,4 +107,4 @@ def controll_center(request):
 
 @login_required(login_url='/login_user/')
 def erstelle_gericht(request):
-    return HttpResponseNotFound('gefunden')
+    return render(request, 'gericht_erstellen.html')
