@@ -99,3 +99,7 @@ def login_user(request):
             # Return an 'invalid login' error message.
     else:
         return render(request, 'login.html')
+
+
+def controll_center(request):
+    return render(request, 'controll_center.html')
