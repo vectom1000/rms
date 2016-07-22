@@ -101,5 +101,6 @@ def login_user(request):
         return render(request, 'login.html')
 
 
+@login_required(login_url='/login_user/')
 def controll_center(request):
     return render(request, 'controll_center.html')
