@@ -8,7 +8,7 @@
         <table class="table table-responsive">
             <tr><th>Name des Gerichts</th><th>Kategorie</th><th>Bearbeiten</th><th>Löschen</th></tr>
             {% for gericht in gerichte %}
-                <tr><td><a href={% url 'zeige_gericht' gericht_id=gericht.pk  %}>{{ gericht.gericht_name }}</a></td><td>-</td> <td>-</td> <td>-</td></tr>
+                <tr><td><a href={% url 'zeige_gericht' gericht_id=gericht.pk  %}>{{ gericht.gericht_name }}</a></td><td>{{ gericht.kategorie.kategorie_name }}</td> <td>-</td> <td>-</td></tr>
             {% endfor %}
         </table>
         <form action="{% url 'erstelle_gerichter'  %}" ><button class="btn btn-primary"  > Neues Gericht anlegen </button>
