@@ -36,6 +36,19 @@
             <ul class="nav navbar-nav">
                 <li><a href="{% url 'index' %}">Übersicht</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                 <li>
+                     <div id="loginarea">
+                        {% if user.is_anonymous %}
+                            Sie sind nicht eingeloggt:
+                            <a href="{% url 'login' %}">Login</a>
+                        {% else %}
+                            Angemeldet als: {{ user }}
+                            <a href="{% url 'django.contrib.auth.views.logout' %}?next=/login_user">Logout</a>
+                        {% endif %}
+                        </div>
+                 </li>
+            </ul>
         </div>
     </div>
 </nav>

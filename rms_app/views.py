@@ -78,14 +78,10 @@ def login_user(request):
                 login(request, user)
                 url = reverse('index')
                 return HttpResponseRedirect(url)
-                # Redirect to a success page.
             else:
-                print 'User is not active'
                 return render(request, 'login.html', {'error': 'Nutzer ist nicht aktiv'})
                 # Return a 'disabled account' error message
         else:
-            print 'Falsche logininfos'
-
             return render(request, 'login.html', {'error': 'Die Anmeldeinformationen sind falsch'})
             # Return an 'invalid login' error message.
     else:
