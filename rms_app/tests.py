@@ -12,7 +12,7 @@ class BasicHtmlTests(TestCase):
     def test_doctype(self):
         """Title page must have a DOCTYPE declaration."""
         response = self.client.get(reverse('index'))
-        self.assertRegex(response.content, rb'^<!DOCTYPE html>')
+        self.assertRegex(response.content, '^<!DOCTYPE html>')
 
     def test_utf8(self):
         """Title page must contain a charset declaration for UTF8."""
