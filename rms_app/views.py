@@ -103,4 +103,5 @@ def login_user(request):
 
 @login_required(login_url='/login_user/')
 def controll_center(request):
-    return render(request, 'controll_center.html')
+    gerichte = Gericht.objects.all()
+    return render(request, 'controll_center.html', {'gerichte': gerichte})
