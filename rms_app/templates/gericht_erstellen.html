@@ -12,11 +12,13 @@
         </div>
         {% endif %}
 
-        <form action="{% url 'erstelle_gerichter' %}" method="post">
+        <form action="{% url 'erstelle_gerichter' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <p>Name des Gerichts: {{ form.gericht_name }}</p>
             <p>Beschreibung: {{ form.beschreibung }}</p>
             <p>Kategorie: {{ form.kategorie }}</p>
+            <p>Photo: {{ form.photo }}</p>
+            <br>
             <input type="submit" value="Submit" />
         </form>
     </div>

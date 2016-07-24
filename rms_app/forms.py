@@ -13,6 +13,7 @@ class GerichtsFormular(ModelForm):
         attrs={'id': 'Beschreibung', 'hiddenButtons': "Preview", 'fullscreen': True}))
     kategorie = forms.ModelChoiceField(queryset=Kategorie.objects.all(), widget=forms.Select(
         attrs={"class": "form-control", }))
+    photo = forms.ImageField(required=True)
 
     class Meta:
         model = Gericht
