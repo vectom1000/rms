@@ -14,7 +14,6 @@ from django.contrib.auth import authenticate, login
 from rms_app.forms import GerichtsFormular
 
 
-
 def uebersicht(request):
     """
     Zeigt eine Übersicht aller eingetragenen Rezepte/Gerichte.

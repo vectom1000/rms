@@ -8,9 +8,9 @@
             {% if forloop.counter|divisibleby:3  %}
                 <div class="row">
             {% endif %}
-            <div class="col-md-4 col-sm-6 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}">
+            <div class="col-md-4 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}">
                 <div class="hovereffect">
-                    <img  class="img-responsive center-block" src="{{ gericht.pk| gib_photo_string}}">
+                    <img class="img-responsive center-block" src="{{ gericht.pk| gib_photo_string}}">
                     <div class="overlay">
                         <h2>{{ gericht }}</h2>
                         <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">link here</a>
