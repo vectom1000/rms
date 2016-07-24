@@ -168,13 +168,14 @@ def bearbeite_gericht(request, gericht_id):
         if form.is_valid():
             form.save()
             if change_photo:
+                print('erstellt neus')
                 # Altes Bild löschen
-                instance = Gericht.objects.get(pk=gericht_id)
-                inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(instance.pk)
+                inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id)
                 full_path = os.path.join(settings.BASE_DIR, inner_path)
+                print(full_path)
                 os.remove(full_path)
                 # Neues Bild hochladen
-                handle_uploaded_file(request.FILES['photo'], gericht_id)
+                #handle_uploaded_file(request.FILES['photo'], str(int(gericht_id)+1))
             else:
                 pass
         else:
