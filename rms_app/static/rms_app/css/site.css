@@ -1,7 +1,7 @@
 ﻿
 #inhalt {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 #logo{
@@ -28,14 +28,6 @@ html {
 
 }
 
-.log_test {
-    align-content: center;
-    padding-top: 200px;
-}
-
-.error_custom{
-    color: red;
-}
 
 #loginarea{
     font-weight: bold;
@@ -43,10 +35,10 @@ html {
     text-align: center;
     padding: 13px;
 }
+/********************************************************************************************/
 
 
-
-
+/* Animation on hoover */
 .hovereffect {
 width:100%;
 height:100%;
@@ -135,6 +127,7 @@ transform:translatey(0);
 transition-delay:.2s;
 }
 
+/********************************************************************************************
 
 /* Zentrierung von text oder anderen Elementen */
 .text-center {
@@ -146,10 +139,10 @@ transition-delay:.2s;
     margin-left: auto;
     margin-right: auto;
  }
+/*********************************************************************************************/
 
 
-
-/* Anpassen der Lofinfenster */
+/* Anpassen der Lofgnfenster */
 @media screen and (max-width: 800px) {
     .center_div{
     margin: 0 auto;
@@ -160,7 +153,7 @@ transition-delay:.2s;
     margin: 0 auto;
     width:30% /* value of your choice which suits your alignment */
 }
-
+/********************************************************************************************
 
 /* Anpassen der Responsiveness vn Divs*/
 @media screen and (max-width: 768px) {
@@ -180,7 +173,7 @@ transition-delay:.2s;
     margin: 0 auto;
     width: 70% ;/* value of your choice which suits your alignment */
 }
-
+/********************************************************************************************/
 
 
 /* Anpassen der Bilder, damit sie korrekt im sm modus angezeigt werden */
@@ -194,3 +187,4 @@ transition-delay:.2s;
         height: 240px /* Or whatever */
     }
 }
+/********************************************************************************************/
