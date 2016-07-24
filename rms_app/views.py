@@ -14,6 +14,7 @@ from django.contrib.auth import authenticate, login
 from rms_app.forms import GerichtsFormular
 
 
+
 def uebersicht(request):
     """
     Zeigt eine Übersicht aller eingetragenen Rezepte/Gerichte.
@@ -133,4 +134,3 @@ def handle_uploaded_file(f, anzahl):
     with open(path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-#cr
