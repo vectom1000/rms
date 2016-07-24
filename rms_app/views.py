@@ -113,12 +113,10 @@ def controll_center(request):
 @login_required(login_url='/login_user/')
 def erstelle_gericht(request):
     if request.method == "POST":
-        anzahl_gerichte = Gericht.objects.all().count()
-        print(request.FILES)
         form = GerichtsFormular(request.POST, request.FILES)
         if form.is_valid():
-            form.save(commit=True)
-            handle_uploaded_file(request.FILES['photo'], anzahl_gerichte)
+            aktuelles_gericht = form.save(commit=True)
+            handle_uploaded_file(request.FILES['photo'], aktuelles_gericht.pk)
             url = reverse('index')
             return HttpResponseRedirect(url)
         else:
@@ -129,7 +127,7 @@ def erstelle_gericht(request):
 
 
 def handle_uploaded_file(f, anzahl):
-    path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(anzahl+1)
+    path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(anzahl)
     with open(path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
@@ -139,5 +137,5 @@ def handle_uploaded_file(f, anzahl):
 def loesche_gericht(request, gericht_id):
     instance = Gericht.objects.get(pk=gericht_id)
     instance.delete()
-    url = reverse('index')
+    url = reverse('controll_center')
     return HttpResponseRedirect(url)
