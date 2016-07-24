@@ -9,7 +9,10 @@
             {% for gericht in gerichte %}
                 <tr><td><a href={% url 'zeige_gericht' gericht_id=gericht.pk  %}>{{ gericht.gericht_name }}</a></td>
                     <td>{{ gericht.kategorie.kategorie_name }}</td>
-                    <td>-</td>
+                    <td><form action={% url 'bearbeite_gericht' gericht_id=gericht.pk  %} >
+                            <button class="btn btn-primary"  > Bearbeiten </button>
+                        </form>
+                     </td>
                      <td><form action={% url 'loesche_gericht' gericht_id=gericht.pk  %} >
                             <button class="btn btn-primary"  > Löschen </button>
                         </form>

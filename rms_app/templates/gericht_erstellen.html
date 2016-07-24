@@ -2,8 +2,12 @@
 {% block content %}
 {% load staticfiles %}
 {% load rms_extras %}
+    {%  if bearbeiten %}
+        <h2 class="text-center"> Gericht bearbeiten</h2>
+    {% else %}
+        <h2 class="text-center"> Gericht erstellen</h2>
+    {% endif %}
 
-    <h2 class="text-center"> Gericht erstellen</h2>
 
     <div id="Texteingabe" class="center_div2">
         {% if form.errors %}
@@ -12,7 +16,11 @@
         </div>
         {% endif %}
 
-        <form action="{% url 'erstelle_gerichter' %}" method="post" enctype="multipart/form-data">
+        {%  if bearbeiten %}
+            <form action="{% url 'bearbeite_gericht' gericht_id=bearbeiten %}" method="post" enctype="multipart/form-data">
+        {% else %}
+            <form action="{% url 'erstelle_gerichter' %}" method="post" enctype="multipart/form-data">
+        {% endif %}
             {% csrf_token %}
             <p>Name des Gerichts: {{ form.gericht_name }}</p>
             <p>Beschreibung: {{ form.beschreibung }}</p>

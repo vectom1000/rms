@@ -144,3 +144,13 @@ def loesche_gericht(request, gericht_id):
     instance.delete()
     url = reverse('controll_center')
     return HttpResponseRedirect(url)
+
+
+@login_required(login_url='/login_user/')
+def bearbeite_gericht(request, gericht_id):
+    if request.method == 'POST':
+        return HttpResponseNotFound('ok')
+    else:
+        gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
+        form = GerichtsFormular(instance=gewaehltes_gericht)
+        return render(request, 'gericht_erstellen.html', {'form': form, 'bearbeiten': gewaehltes_gericht.pk})
