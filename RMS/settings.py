@@ -132,7 +132,7 @@ MARKDOWN_DEUX_STYLES = {
         "extras": {
             "code-friendly": None,
         },
-        "safe_mode": True,
+        "safe_mode": "escape",
     },
 }
 

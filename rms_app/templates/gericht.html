@@ -2,6 +2,8 @@
 {% block content %}
 {% load staticfiles %}
 {% load rms_extras %}
+{% load markdown_deux_tags %}
+
     <div class="container jumbotron">
         <h2 class="text-center">{{ gericht }} al la bla bla bla bla bla bla bla blab bla</h2>
         <br>
@@ -9,8 +11,7 @@
         <br>
         <img  class="img-responsive center-block" src="{{ gericht.pk| gib_photo_string }}">
         <br>
-
-        <p>{{ gericht.beschreibung }}</p>
+        <p>{{ gericht.beschreibung|markdown:'STYLE' }}</p>
     </div>
 
 {% endblock %}
