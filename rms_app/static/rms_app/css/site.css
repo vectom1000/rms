@@ -178,3 +178,16 @@ transition-delay:.2s;
     margin: 0 auto;
     width:70% !important;/* value of your choice which suits your alignment */
 }
+
+
+@media (min-width: 850px) and (max-width: 992px) {
+    .outer {
+        height: 280px /* Or whatever */
+    }
+}
+@media (min-width: 768px) and (max-width: 850px) {
+    .outer {
+        height: 240px /* Or whatever */
+    }
+}
+
