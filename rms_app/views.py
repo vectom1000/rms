@@ -133,3 +133,11 @@ def handle_uploaded_file(f, anzahl):
     with open(path, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
+
+
+@login_required(login_url='/login_user/')
+def loesche_gericht(request, gericht_id):
+    instance = Gericht.objects.get(pk=gericht_id)
+    instance.delete()
+    url = reverse('index')
+    return HttpResponseRedirect(url)
