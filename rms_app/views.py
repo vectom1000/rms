@@ -94,7 +94,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                url = reverse('index')
+                url = reverse('controll_center')
                 return HttpResponseRedirect(url)
             else:
                 return render(request, 'login.html', {'error': 'Nutzer ist nicht aktiv'})
