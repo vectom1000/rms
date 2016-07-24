@@ -3,8 +3,11 @@
 {% load staticfiles %}
 {% load rms_extras %}
 
-    <div class="row">
+    <div class="">
         {% for gericht in gerichte %}
+            {% if forloop.counter|divisibleby:3  %}
+                <div class="row">
+            {% endif %}
             <div class="col-md-4 col-sm-6 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}">
                 <div class="hovereffect">
                     <img  class="img-responsive center-block" src="{{ gericht.pk| gib_photo_string}}">
@@ -14,6 +17,8 @@
                         </div>
                 </div>
             </div>
+            {% if forloop.counter|divisibleby:3 %}</div>
+            {% endif %}
         {% endfor %}
     </div>
 
