@@ -7,14 +7,15 @@ from rms_app.models import Kategorie, Gericht
 
 
 class GerichtsFormular(ModelForm):
+    gericht_name = forms.CharField(max_length=300, required=True, widget=forms.TextInput(
+        attrs={"type": "text", "class": "form-control", 'autofocus': 'autofocus'}))
     beschreibung = forms.CharField(max_length=3000, required=True, widget=MarkdownEditor(
                                             attrs={'id': 'Beschreibung',
-                                                   'autofocus': True,
                                                    'hiddenButtons': "Preview",
                                                    'fullscreen': True}))
 
     class Meta:
         model = Gericht
-        fields = ('beschreibung',)
+        fields = ('beschreibung', 'gericht_name')
 
 
