@@ -6,9 +6,19 @@
     <h2 class="text-center"> Gericht erstellen</h2>
 
     <div id="Texteingabe" class="center_div2">
-        <p>Name des Gerichts: {{ form.gericht_name }}</p>
-        <p>Beschreibung: {{ form.beschreibung }}</p>
-        <p>Kategorie: {{ form.kategorie }}</p>
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ form.errors }}</strong>
+        </div>
+        {% endif %}
+
+        <form action="{% url 'erstelle_gerichter' %}" method="post">
+            {% csrf_token %}
+            <p>Name des Gerichts: {{ form.gericht_name }}</p>
+            <p>Beschreibung: {{ form.beschreibung }}</p>
+            <p>Kategorie: {{ form.kategorie }}</p>
+            <input type="submit" value="Submit" />
+        </form>
     </div>
 
 {% endblock %}

@@ -112,5 +112,14 @@ def controll_center(request):
 
 @login_required(login_url='/login_user/')
 def erstelle_gericht(request):
-    form = GerichtsFormular()
-    return render(request, 'gericht_erstellen.html', {'form': form})
+    if request.method == "POST":
+        form = GerichtsFormular(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            url = reverse('index')
+            return HttpResponseRedirect(url)
+        else:
+            return render(request, 'gericht_erstellen.html', {'form': form})
+    else:
+        form = GerichtsFormular()
+        return render(request, 'gericht_erstellen.html', {'form': form})
