@@ -12,6 +12,8 @@ from django.core.urlresolvers import reverse
 from rms_app.models import Gericht, Kategorie
 from django.contrib.auth import authenticate, login
 from rms_app.forms import GerichtsFormular
+import os
+from RMS import settings
 
 
 def uebersicht(request):
@@ -136,6 +138,9 @@ def handle_uploaded_file(f, anzahl):
 @login_required(login_url='/login_user/')
 def loesche_gericht(request, gericht_id):
     instance = Gericht.objects.get(pk=gericht_id)
+    inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(instance.pk)
+    full_path = os.path.join(settings.BASE_DIR, inner_path)
+    os.remove(full_path)
     instance.delete()
     url = reverse('controll_center')
     return HttpResponseRedirect(url)

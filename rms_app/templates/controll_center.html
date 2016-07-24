@@ -4,7 +4,6 @@
     <div class="container">
         <h2 class="text-center">Controll-Center</h2>
         <br>
-
         <table class="table table-responsive">
             <tr><th>Name des Gerichts</th><th>Kategorie</th><th>Bearbeiten</th><th>Löschen</th></tr>
             {% for gericht in gerichte %}
@@ -13,7 +12,8 @@
                     <td>-</td>
                      <td><form action={% url 'loesche_gericht' gericht_id=gericht.pk  %} >
                             <button class="btn btn-primary"  > Löschen </button>
-                        </form></td>
+                        </form>
+                     </td>
                 </tr>
             {% endfor %}
         </table>
