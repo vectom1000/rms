@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Create and start Exposee-Container, and create link with other containers
 docker build -t rmsimage .
 echo -n "Building RMS"
@@ -16,4 +17,6 @@ docker exec -i rmsapp python manage.py shell < init_db2.py
 #python manage.py makemigrations rms_app
 echo "RMS is now ready!"
 #python manage.py migrate --run-syncdb
+#python3 manage.py dumpdata > datadump.json
+
 
