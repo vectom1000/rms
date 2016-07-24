@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Create and start Exposee-Container, and create link with other containers
+# Create and start RMS-Container, and create link with other containers
 docker build -t rmsimage .
 echo -n "Building RMS"
 echo 'done'
