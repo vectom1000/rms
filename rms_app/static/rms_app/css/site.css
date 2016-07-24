@@ -134,16 +134,9 @@ transform:translatey(0);
 -webkit-transition-delay:.2s;
 transition-delay:.2s;
 }
-/* */
 
-.text-left {
-  text-align: left;
-}
 
-.text-right {
-  text-align: right;
-}
-
+/* Zentrierung von text oder anderen Elementen */
 .text-center {
   text-align: center;
 }
@@ -156,6 +149,7 @@ transition-delay:.2s;
 
 
 
+/* Anpassen der Lofinfenster */
 @media screen and (max-width: 800px) {
     .center_div{
     margin: 0 auto;
@@ -168,18 +162,28 @@ transition-delay:.2s;
 }
 
 
-@media screen and (max-width: 800px) {
+/* Anpassen der Responsiveness vn Divs*/
+@media screen and (max-width: 768px) {
     .center_div2{
     margin: 0 auto;
-    width: 90% !important; /* value of your choice which suits your alignment */
+    width: 100% !important; /* value of your choice which suits your alignment */
     }
 }
+@media (min-width: 768px) and (max-width: 992px) {
+    .center_div2{
+    margin: 0 auto;
+    width: 85% !important; /* value of your choice which suits your alignment */
+    }
+}
+
 .center_div2{
     margin: 0 auto;
-    width:70% !important;/* value of your choice which suits your alignment */
+    width: 70% ;/* value of your choice which suits your alignment */
 }
 
 
+
+/* Anpassen der Bilder, damit sie korrekt im sm modus angezeigt werden */
 @media (min-width: 850px) and (max-width: 992px) {
     .outer {
         height: 280px /* Or whatever */
@@ -190,4 +194,3 @@ transition-delay:.2s;
         height: 240px /* Or whatever */
     }
 }
-

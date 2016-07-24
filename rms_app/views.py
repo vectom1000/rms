@@ -15,6 +15,7 @@ from rms_app.forms import GerichtsFormular
 from django.core.files import File
 import os
 from RMS import settings
+from PIL import Image
 
 
 def uebersicht(request):
@@ -147,19 +148,19 @@ def loesche_gericht(request, gericht_id):
     return HttpResponseRedirect(url)
 
 
-from PIL import Image
+
 @login_required(login_url='/login_user/')
 def bearbeite_gericht(request, gericht_id):
     if request.method == 'POST':
         altes_gericht = Gericht.objects.get(pk=gericht_id)
         change_photo = False
-        print(request.FILES)
+
         if request.FILES.get('photo', False) is not False:
-            print('neues file hochgeladen')
+            # Neues Bild hochgeladen
             form = GerichtsFormular(request.POST, request.FILES, instance=altes_gericht)
             change_photo = True
         else:
-            print('kein neues file')
+            # Kein neues Bild hochgeladen
             inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id)
             full_path = os.path.join(settings.BASE_DIR, inner_path)
             trial_image = Image.open(full_path)
@@ -175,9 +176,8 @@ def bearbeite_gericht(request, gericht_id):
                 print(full_path)
                 os.remove(full_path)
                 # Neues Bild hochladen
-                #handle_uploaded_file(request.FILES['photo'], str(int(gericht_id)+1))
-            else:
-                pass
+                handle_uploaded_file(request.FILES['photo'], gericht_id)
+
         else:
             gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
             return render(request, 'gericht_erstellen.html', {'form': form, 'bearbeiten': gewaehltes_gericht.pk})
