@@ -135,3 +135,8 @@ MARKDOWN_DEUX_STYLES = {
         "safe_mode": True,
     },
 }
+
+MARKDOWN_CONFIG = {
+    'locale': 'de',
+    'boostrap_cdn': False,
+}

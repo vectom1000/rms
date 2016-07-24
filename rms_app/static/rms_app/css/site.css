@@ -166,3 +166,15 @@ transition-delay:.2s;
     margin: 0 auto;
     width:30% /* value of your choice which suits your alignment */
 }
+
+
+@media screen and (max-width: 800px) {
+    .center_div2{
+    margin: 0 auto;
+    width: 90% !important; /* value of your choice which suits your alignment */
+    }
+}
+.center_div2{
+    margin: 0 auto;
+    width:70% !important;/* value of your choice which suits your alignment */
+}

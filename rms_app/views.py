@@ -11,6 +11,7 @@ from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
 from rms_app.models import Gericht, Kategorie
 from django.contrib.auth import authenticate, login
+from rms_app.forms import GerichtsFormular
 
 
 def uebersicht(request):
@@ -111,4 +112,5 @@ def controll_center(request):
 
 @login_required(login_url='/login_user/')
 def erstelle_gericht(request):
-    return render(request, 'gericht_erstellen.html')
+    form = GerichtsFormular()
+    return render(request, 'gericht_erstellen.html', {'form': form})
