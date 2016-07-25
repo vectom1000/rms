@@ -6,5 +6,5 @@ from rms_app.models import Gericht, Kategorie
 class GerichtAdmin(admin.ModelAdmin):
         list_display = ('gericht_name', 'beschreibung')
 
-admin.site.register(Gericht, GerichtAdmin)
-admin.site.register(Kategorie)
+#admin.site.register(Gericht, GerichtAdmin)
+#admin.site.register(Kategorie)
