@@ -7,7 +7,7 @@
     <div class="container jumbotron">
         <h2 class="text-center">{{ gericht }} al la bla bla bla bla bla bla bla blab bla</h2>
         <br>
-        <h3 class="text-center"> Kategorie: {{ gericht.kategorie.kategorie_name }}</h3>
+        <h3 class="text-center"> Kategorie: <a href="{% url 'zeige_kategorie' kategorie_id=gericht.kategorie_id %}">{{ gericht.kategorie.kategorie_name }}</a></h3>
         <br>
         <img  class="img-responsive center-block" src="{{ gericht.pk| gib_photo_string }}">
         <br>
