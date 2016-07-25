@@ -146,7 +146,7 @@ def erstelle_kategorie(request):
         form = KategorienFormular(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('controll_center'))
         else:
             return render(request, 'kategorie_erstellen.html', {'form': form})
     elif request.method == 'GET':
@@ -197,6 +197,19 @@ def loesche_gericht(request, gericht_id):
     gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
     loesche_bild(gericht_id)
     gewaehltes_gericht.delete()
+    return HttpResponseRedirect(reverse('controll_center'))
+
+
+@login_required(login_url='/login_user/')
+def loesche_kategorie(request, kategorie_id):
+    """
+    Loescht die Kategorie
+    :param request:
+    :param kategorie_id:
+    :return:
+    """
+    gewaehlte_kategorie = Kategorie.objects.get(pk=kategorie_id)
+    gewaehlte_kategorie.delete()
     return HttpResponseRedirect(reverse('controll_center'))
 
 
