@@ -120,7 +120,7 @@ def erstelle_gericht(request):
         form = GerichtsFormular(request.POST, request.FILES)
         if form.is_valid():
             aktuelles_gericht = form.save(commit=True)
-            handle_uploaded_file(request.FILES['photo'], aktuelles_gericht.pk)
+            lade_photo_hoch(request.FILES['photo'], aktuelles_gericht.pk)
             url = reverse('index')
             return HttpResponseRedirect(url)
         else:
@@ -130,7 +130,7 @@ def erstelle_gericht(request):
         return render(request, 'gericht_erstellen.html', {'form': form})
 
 
-def handle_uploaded_file(f, anzahl):
+def lade_photo_hoch(f, anzahl):
     path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(anzahl)
     with open(path, 'wb+') as destination:
         for chunk in f.chunks():
@@ -139,51 +139,44 @@ def handle_uploaded_file(f, anzahl):
 
 @login_required(login_url='/login_user/')
 def loesche_gericht(request, gericht_id):
-    instance = Gericht.objects.get(pk=gericht_id)
-    inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(instance.pk)
-    full_path = os.path.join(settings.BASE_DIR, inner_path)
-    os.remove(full_path)
-    instance.delete()
-    url = reverse('controll_center')
-    return HttpResponseRedirect(url)
+    gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
+    loesche_bild(gericht_id)
+    gewaehltes_gericht.delete()
+    return HttpResponseRedirect(reverse('controll_center'))
 
+
+def loesche_bild(gericht_id):
+    inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id)
+    os.remove(gib_pfad(inner_path))
+
+
+def gib_pfad(inner_path):
+    return os.path.join(settings.BASE_DIR, inner_path)
 
 
 @login_required(login_url='/login_user/')
 def bearbeite_gericht(request, gericht_id):
+    gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
     if request.method == 'POST':
-        altes_gericht = Gericht.objects.get(pk=gericht_id)
-        change_photo = False
-
-        if request.FILES.get('photo', False) is not False:
-            # Neues Bild hochgeladen
-            form = GerichtsFormular(request.POST, request.FILES, instance=altes_gericht)
-            change_photo = True
+        photo_wurde_geaendert = False
+        if wurde_neues_bild_hochgeladen(request) is not False:
+            photo_wurde_geaendert = True
+            form = GerichtsFormular(request.POST, request.FILES, instance=gewaehltes_gericht)
         else:
-            # Kein neues Bild hochgeladen
-            inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id)
-            full_path = os.path.join(settings.BASE_DIR, inner_path)
-            trial_image = Image.open(full_path)
-            form = GerichtsFormular(request.POST, instance=altes_gericht, initial={'photo': trial_image})
-
+            full_path = gib_pfad('rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id))
+            form = GerichtsFormular(request.POST, instance=gewaehltes_gericht, initial={'photo': Image.open(full_path)})
         if form.is_valid():
             form.save()
-            if change_photo:
-                print('erstellt neus')
-                # Altes Bild löschen
-                inner_path = 'rms_app/static/rms_app/photos/{0}.jpg'.format(gericht_id)
-                full_path = os.path.join(settings.BASE_DIR, inner_path)
-                print(full_path)
-                os.remove(full_path)
-                # Neues Bild hochladen
-                handle_uploaded_file(request.FILES['photo'], gericht_id)
-
+            if photo_wurde_geaendert:
+                loesche_bild(gericht_id)
+                lade_photo_hoch(request.FILES['photo'], gericht_id)
         else:
-            gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
             return render(request, 'gericht_erstellen.html', {'form': form, 'bearbeiten': gewaehltes_gericht.pk})
-        url = reverse('controll_center')
-        return HttpResponseRedirect(url)
-    else:
-        gewaehltes_gericht = Gericht.objects.get(pk=gericht_id)
+        return HttpResponseRedirect(reverse('controll_center'))
+    elif request.method == 'GET':
         form = GerichtsFormular(instance=gewaehltes_gericht)
         return render(request, 'gericht_erstellen.html', {'form': form, 'bearbeiten': gewaehltes_gericht.pk})
+
+
+def wurde_neues_bild_hochgeladen(request):
+    return bool(request.FILES.get('photo', False))
