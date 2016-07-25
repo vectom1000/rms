@@ -2,7 +2,7 @@
 {% block content %}
 {% load staticfiles %}
 {% load rms_extras %}
-
+    <h2 class="text-center"> Alle Gerichte im Überblick</h2>
     <div class="">
         {% for gericht in gerichte %}
             {% if forloop.counter|divisibleby:3 %}
