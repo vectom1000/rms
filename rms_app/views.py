@@ -55,7 +55,8 @@ def controll_center(request):
     :return:
     """
     gerichte = Gericht.objects.all()
-    return render(request, 'controll_center.html', {'gerichte': gerichte})
+    kategorien = Kategorie.objects.all()
+    return render(request, 'controll_center.html', {'gerichte': gerichte, 'kategorien': kategorien})
 
 
 def uebersicht(request):

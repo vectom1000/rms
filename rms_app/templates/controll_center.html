@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2 class="text-center">Controll-Center</h2>
-        <br>
+        <h3>Gerichte verwalten</h3>
         <table class="table table-responsive">
             <tr><th>Name des Gerichts</th><th>Kategorie</th><th>Bearbeiten</th><th>Löschen</th></tr>
             {% for gericht in gerichte %}
@@ -20,10 +20,27 @@
                 </tr>
             {% endfor %}
         </table>
-        <table>
-           <tr> <td><form action="{% url 'erstelle_gerichter'  %}" ><button class="btn btn-primary"  > Neues Gericht anlegen </button></form></td>
-                <td><form action="{% url 'erstelle_kategorie'  %}" ><button class="btn btn-primary"  > Neue Kategorie anlegen </button></form> </td></tr>
+        <form action="{% url 'erstelle_gerichter'  %}" ><button class="btn btn-primary"  > Neues Gericht anlegen </button></form>
+        <br>
+        <br>
+        <br>
+        <h3>Kategorien verwalten</h3>
+        <table class="table table-responsive">
+            <tr><th>Name der Kategorie</th><th>Bearbeiten</th><th>Löschen</th></tr>
+            {% for kategorie in kategorien %}
+                <tr><td>{{ kategorie.kategorie_name }}</td>
+                    <td><form action="" >
+                            <button class="btn btn-primary"  > Bearbeiten </button>
+                        </form>
+                     </td>
+                     <td><form action="" >
+                            <button class="btn btn-primary"  > Löschen </button>
+                        </form>
+                     </td>
+                </tr>
+            {% endfor %}
         </table>
+        <form action="{% url 'erstelle_kategorie'  %}" ><button class="btn btn-primary"  > Neue Kategorie anlegen </button></form>
 
 
     </div>
