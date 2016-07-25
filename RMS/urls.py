@@ -13,5 +13,5 @@ urlpatterns = [
     url(r'^erstelle_gericht/', 'rms_app.views.erstelle_gericht', name='erstelle_gerichter'),
     url(r'^loesche_gericht/(?P<gericht_id>[0-9]{1,10})/$', rms_app.views.loesche_gericht, name='loesche_gericht'),
     url(r'^bearbeite_gericht/(?P<gericht_id>[0-9]{1,10})/$', rms_app.views.bearbeite_gericht, name='bearbeite_gericht'),
-
+    url(r'^zeige_kategorie/(?P<kategorie_id>[0-9]{1,10})/$', rms_app.views.zeige_kategorie, name='zeige_kategorie'),
 ]

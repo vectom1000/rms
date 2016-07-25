@@ -225,3 +225,16 @@ def zeige_gericht(request, gericht_id):
     """
     gericht = Gericht.objects.get(pk=gericht_id)
     return render(request, 'gericht.html', {'gericht': gericht})
+
+
+def zeige_kategorie(request, kategorie_id):
+    """
+    Zeigt alle Gerichte fuer die entsprechende Kategorie an.
+    :param request:
+    :param kategorie_id:
+    :return:
+    """
+    ausgewaehlte_kategorie = Kategorie.objects.get(pk=kategorie_id)
+    gerichte_in_kategorie = Gericht.objects.filter(kategorie=ausgewaehlte_kategorie)
+    return render(request, 'kategorie.html', {'gerichte': gerichte_in_kategorie,
+                                              'kategorie': ausgewaehlte_kategorie.kategorie_name})

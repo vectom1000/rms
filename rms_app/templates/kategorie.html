@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+{% load staticfiles %}
+{% load rms_extras %}
+
+    <div class="">
+        <h2 class="text-center">{{ kategorie }}</h2>
+        {% for gericht in gerichte %}
+            {% if forloop.counter|divisibleby:3 %}
+                <div class="row">
+            {% endif %}
+            <div class="col-md-4 col-sm-6 col-xs-12 " style="padding: 5px;" id="{{forloop.counter}}">
+                <div class="hovereffect">
+                    <img  class="img-responsive center-block outer" src="{{ gericht.pk| gib_photo_string}}">
+                    <div class="overlay">
+                        <h2>{{ gericht }}</h2>
+                        <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">link here</a>
+                        </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
