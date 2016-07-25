@@ -25,5 +25,5 @@ class KategorienFormular(ModelForm):
         attrs={"type": "text", "class": "form-control", 'autofocus': 'autofocus'}))
 
     class Meta:
-        model = Gericht
+        model = Kategorie
         fields = ('kategorie_name',)
