@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
 """Modul for Views of RMS."""
 
-# Externe Module/Klassen
-
-# Django Module/Klassen
-from django.http import HttpResponseNotFound
-from django.shortcuts import render, HttpResponseRedirect
+# Externe Imports
+import os
+from PIL import Image
+# Django Imports
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
-from rms_app.models import Gericht, Kategorie
 from django.contrib.auth import authenticate, login
-from rms_app.forms import GerichtsFormular
-from django.core.files import File
-import os
+from django.shortcuts import render, HttpResponseRedirect
+# Eigene Imports
 from RMS import settings
-from PIL import Image
+from rms_app.forms import GerichtsFormular
+from rms_app.models import Gericht, Kategorie
 
 
 @login_required(login_url='/login_user/')
