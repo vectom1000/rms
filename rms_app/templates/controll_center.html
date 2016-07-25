@@ -29,7 +29,7 @@
             <tr><th>Name der Kategorie</th><th>Bearbeiten</th><th>Löschen</th></tr>
             {% for kategorie in kategorien %}
                 <tr><td>{{ kategorie.kategorie_name }}</td>
-                    <td><form action="" >
+                    <td><form action="{% url 'bearbeite_kategorie' kategorie_id=kategorie.pk %}" >
                             <button class="btn btn-primary"  > Bearbeiten </button>
                         </form>
                      </td>

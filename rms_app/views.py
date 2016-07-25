@@ -48,6 +48,21 @@ def bearbeite_gericht(request, gericht_id):
 
 
 @login_required(login_url='/login_user/')
+def bearbeite_kategorie(request, kategorie_id):
+    gewaehlte_kategorie = Kategorie.objects.get(pk=kategorie_id)
+    form = KategorienFormular(instance=gewaehlte_kategorie)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            return render(request, 'kategorie_erstellen.html', {'form': form, 'bearbeiten': gewaehlte_kategorie.pk})
+    elif request.method == 'GET':
+        form = KategorienFormular(instance=gewaehlte_kategorie)
+        return render(request, 'kategorie_erstellen.html', {'form': form, 'bearbeiten': gewaehlte_kategorie.pk})
+
+
+@login_required(login_url='/login_user/')
 def controll_center(request):
     """
     Zeigt die Seite Controll-Center an.
