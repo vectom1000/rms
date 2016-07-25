@@ -142,7 +142,12 @@ def erstelle_gericht(request):
 @login_required(login_url='/login_user/')
 def erstelle_kategorie(request):
     if request.method == 'POST':
-        pass
+        form = KategorienFormular(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect(reverse('index'))
+        else:
+            return render(request, 'kategorie_erstellen.html', {'form': form})
     elif request.method == 'GET':
         form = KategorienFormular()
         return render(request, 'kategorie_erstellen.html', {'form': form})

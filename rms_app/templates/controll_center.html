@@ -20,8 +20,9 @@
                 </tr>
             {% endfor %}
         </table>
-        <form action="{% url 'erstelle_gerichter'  %}" ><button class="btn btn-primary"  > Neues Gericht anlegen </button>
-        </form>
+        <form action="{% url 'erstelle_gerichter'  %}" ><button class="btn btn-primary"  > Neues Gericht anlegen </button></form>
+        <form action="{% url 'erstelle_kategorier'  %}" ><button class="btn btn-primary"  > Neue Kategorie anlegen </button></form>
+
     </div>
 
 {% endblock %}
