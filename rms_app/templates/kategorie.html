@@ -4,7 +4,7 @@
 {% load rms_extras %}
 
     <div class="">
-        <h2 class="text-center">{{ kategorie }}</h2>
+        <h2 class="text-center"> Kategorie: {{ kategorie }}</h2>
         {% for gericht in gerichte %}
             {% if forloop.counter|divisibleby:3 %}
                 <div class="row">
@@ -14,7 +14,7 @@
                     <img  class="img-responsive center-block outer" src="{{ gericht.pk| gib_photo_string}}">
                     <div class="overlay">
                         <h2>{{ gericht }}</h2>
-                        <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">link here</a>
+                        <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">Mehr erfahren</a>
                         </div>
                 </div>
             </div>
