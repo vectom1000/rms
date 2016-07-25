@@ -13,6 +13,7 @@
             <strong>{{ form.errors }}</strong>
         </div>
         {% endif %}
+        <div class="center_div2">
             {% if bearbeiten %}
                  <form action="{% url 'bearbeite_kategorie' kategorie_id=bearbeiten %}" method="post">
             {%  else %}
@@ -23,6 +24,7 @@
             <p>Name der Kategorie: {{ form.kategorie_name }}</p>
             <input class="btn btn-primary" type="submit" value="Speichern" />
         </form>
+        </div>
     </div>
 
 {% endblock %}
