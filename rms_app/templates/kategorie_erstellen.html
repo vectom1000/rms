@@ -14,9 +14,9 @@
         </div>
         {% endif %}
             {% if bearbeiten %}
-                 <form action="{% url 'bearbeite_kategorie' %}" method="post" >
+                 <form action="{% url 'bearbeite_kategorie' kategorie_id=bearbeiten %}" method="post">
             {%  else %}
-                 <form action="{% url 'erstelle_kategorie' %}" method="post" >
+                 <form action="{% url 'erstelle_kategorie' %}" method="post">
             {% endif %}
 
             {% csrf_token %}
