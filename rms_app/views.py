@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, HttpResponseRedirect
 # Eigene Imports
 from RMS import settings
-from rms_app.forms import GerichtsFormular
+from rms_app.forms import GerichtsFormular, KategorienFormular
 from rms_app.models import Gericht, Kategorie
 
 
@@ -137,6 +137,15 @@ def erstelle_gericht(request):
     else:
         form = GerichtsFormular()
         return render(request, 'gericht_erstellen.html', {'form': form})
+
+
+@login_required(login_url='/login_user/')
+def erstelle_kategorie(request):
+    if request.method == 'POST':
+        pass
+    elif request.method == 'GET':
+        form = KategorienFormular()
+        return render(request, 'kategorie_erstellen.html', {'form': form})
 
 
 def gib_pfad(inner_path):

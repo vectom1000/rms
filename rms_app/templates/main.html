@@ -14,7 +14,7 @@
                     <div class="overlay">
                         <h2>{{ gericht }}</h2>
                         <a class="info" href="{% url 'zeige_gericht' gericht_id=gericht.pk  %}">Mehr erfahren</a>
-                        </div>
+                    </div>
                 </div>
             </div>
             {% if forloop.counter|divisibleby:3 %}

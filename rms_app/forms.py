@@ -20,3 +20,10 @@ class GerichtsFormular(ModelForm):
         fields = ('beschreibung', 'gericht_name', 'kategorie')
 
 
+class KategorienFormular(ModelForm):
+    kategorie_name = forms.CharField(max_length=300, required=True, widget=forms.TextInput(
+        attrs={"type": "text", "class": "form-control", 'autofocus': 'autofocus'}))
+
+    class Meta:
+        model = Gericht
+        fields = ('kategorie_name',)

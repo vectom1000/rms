@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+{% load staticfiles %}
+{% load rms_extras %}
+    <h2 class="text-center"> Kategorie erstellen </h2>
+    <div id="Texteingabe" class="row center_div2">
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>{{ form.errors }}</strong>
+        </div>
+        {% endif %}
+
+            <form action="{% url 'erstelle_kategorie' %}" method="post" >
+            {% csrf_token %}
+            <p>Name der Kategorie: {{ form.kategorie_name }}</p>
+            <input class="btn btn-primary" type="submit" value="Speichern" />
+        </form>
+    </div>
+
+{% endblock %}
+
